@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CrawfisSoftware.Tiling</RootNamespace>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AssemblyName>CrawfisSoftware.$(MSBuildProjectName)</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+
+    <DocumentationFile>$(SolutionDir)bin\Documentation\CrawfisSoftware.MazeTilings.xml</DocumentationFile>
+
+    <OutputPath>$(SolutionDir)bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>$(SolutionDir)bin\Release\</OutputPath>
+
+    <DocumentationFile>$(SolutionDir)bin\Documentation\CrawfisSoftware.MazeTilings.xml</DocumentationFile>
+
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CrawfisSoftware.Maze" Version="0.1.2" />
+    <PackageReference Include="CrawfisSoftware.Tiling" Version="0.2.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+</Project>

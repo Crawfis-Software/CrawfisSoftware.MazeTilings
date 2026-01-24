@@ -1,0 +1,27 @@
+# MazeTilings llms.txt
+Concise guide for LLMs: Maze-to-Wang-tiling utilities (renderer-agnostic) targeting `netstandard2.1`. SVG demos live elsewhere; focus on the library code below.
+
+## Dependencies (critical)
+- `CrawfisSoftware.Maze`
+- `CrawfisSoftware.Tiling`
+
+## Documentation
+- [MazeTilings README](https://github.com/crawfis/TilingFramework/blob/master/MazeTilings/README.md) — library overview, usage, and scope.
+- Dependency docs:
+  - [CrawfisSoftware.Maze repo](https://github.com/Crawfis-Software/CrawfisSoftware.Maze) | [README](https://github.com/Crawfis-Software/CrawfisSoftware.Maze/blob/main/README.md)
+  - [CrawfisSoftware.Tiling repo](https://github.com/Crawfis-Software/CrawfisSoftware.Tiling) | [README](https://github.com/Crawfis-Software/CrawfisSoftware.Tiling/blob/master/README.md) | [llms.txt](https://github.com/Crawfis-Software/CrawfisSoftware.Tiling/blob/master/llms.txt)
+
+## Key source files
+- [MazeWrapperTilingBuilder.cs](https://github.com/crawfis/TilingFramework/blob/master/MazeTilings/MazeWrapperTilingBuilder.cs) — maps `Maze<int,int>` cells to tiles via enumerators/selectors.
+- [WangColorizer.cs](https://github.com/crawfis/TilingFramework/blob/master/MazeTilings/WangColorizer.cs) — dynamic Wang tile-set creation from a colorizer.
+- [MazeColorizers.cs](https://github.com/crawfis/TilingFramework/blob/master/MazeTilings/MazeColorizers.cs) — direction-based color mapping helpers.
+- [AbstractMazeColorizer.cs](https://github.com/crawfis/TilingFramework/blob/master/MazeTilings/AbstractMazeColorizer.cs) — base for metric-aware colorizers.
+- [IMazeTileSelector.cs](https://github.com/crawfis/TilingFramework/blob/master/MazeTilings/IMazeTileSelector.cs) — interface for maze-aware tile selection.
+- [PathTileSetFactory.cs](https://github.com/crawfis/TilingFramework/blob/master/MazeTilings/PathTileSetFactory.cs) — builds arc/Manhattan path tile sets.
+- [TileSizePathTileDecorator.cs](https://github.com/crawfis/TilingFramework/blob/master/MazeTilings/TileSizePathTileDecorator.cs) — resizes path tiles.
+- [PathTile.cs](https://github.com/crawfis/TilingFramework/blob/master/MazeTilings/PathTile.cs) — concrete path tile implementation.
+- [UnityStubs.cs](https://github.com/crawfis/TilingFramework/blob/master/MazeTilings/UnityStubs.cs) — Unity-compatible stubs for `Vector3`, etc.
+
+## Scope notes
+- Renderer-agnostic: consume `ITiling2D` with your own renderer; SVG lives in `ExampleProjects/MazeTilingSVG`.
+- Keep focus on interfaces and builders above for API understanding.

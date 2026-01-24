@@ -10,6 +10,9 @@
 
     <!-- Optional: prevent doubled assembly name -->
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+
+    <!-- Show README on NuGet -->
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -34,5 +37,9 @@
     <PackageReference Include="CrawfisSoftware.Tiling" Version="0.2.0" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>

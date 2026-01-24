@@ -4,28 +4,31 @@
     <OutputType>Library</OutputType>
     <RootNamespace>CrawfisSoftware.Tiling</RootNamespace>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <AssemblyName>CrawfisSoftware.$(MSBuildProjectName)</AssemblyName>
+
+    <!-- Fix NuGet package id -->
+    <PackageId>CrawfisSoftware.MazeTilings</PackageId>
+
+    <!-- Optional: prevent doubled assembly name -->
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
   </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-
     <DocumentationFile>$(SolutionDir)bin\Documentation\CrawfisSoftware.MazeTilings.xml</DocumentationFile>
-
     <OutputPath>$(SolutionDir)bin\Debug\</OutputPath>
   </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <OutputPath>$(SolutionDir)bin\Release\</OutputPath>
-
     <DocumentationFile>$(SolutionDir)bin\Documentation\CrawfisSoftware.MazeTilings.xml</DocumentationFile>
-
   </PropertyGroup>
+
   <PropertyGroup>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-
-    <!-- Optional but commonly desired for SourceLink -->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="CrawfisSoftware.Maze" Version="0.1.2" />
     <PackageReference Include="CrawfisSoftware.Tiling" Version="0.2.0" />

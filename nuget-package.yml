@@ -133,11 +133,6 @@ jobs:
           name: upm-tarball
           path: artifacts/upm/${{ env.UPM_PACKAGE_ID }}-*.tgz
 
-      - name: Check packed files
-        run: |
-          echo "Contents of artifacts/"
-          ls -la artifacts/
-
   publish-nuget:
     needs: build-pack
     # Job id: `publish-nuget`
@@ -183,7 +178,6 @@ jobs:
       - name: Push NuGet symbols
         # Push the symbols package(s) to nuget.org for source/symbol debugging.
         # `--skip-duplicate` prevents failures if the version is already present.
-        if: ${{ hashFiles('artifacts/*.snupkg') != '' }}
         run: dotnet nuget push "artifacts/*.snupkg" --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
   attach-release-assets:

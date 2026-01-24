@@ -1,5 +1,24 @@
 # MazeTilings
 
+## Unity Package Manager dependency
+
+This repository contains a Unity UPM package at `Packages/com.crawfissoftware.mazetilings`.
+
+If you want this package to depend on another Unity package (for example the Crawfis tilings framework), declare it in `Packages/com.crawfissoftware.mazetilings/package.json` under `dependencies`.
+
+### Dependency hosted as a public GitHub repo
+
+UPM can resolve dependencies directly from Git. Use a tagged version (recommended) so installs are reproducible:
+
+- In `package.json`:
+  - `"dependencies": { "com.crawfissoftware.tilings": "https://github.com/Crawfis-Software/<repo>.git#v1.2.3" }`
+
+### Dependency distributed as a GitHub tarball release
+
+Unity can also install packages from a tarball URL via **Package Manager -> Add package from git URL...**.
+
+If you install dependencies via tarball, UPM will not automatically discover where to fetch that dependency unless you also provide a resolvable entry (registry or Git URL) in `dependencies`. In practice this means you should prefer Git URL (or a registry) for dependencies, and reserve tarball installs for end-user convenience.
+
 A .NET Standard 2.1 library for converting mazes (built on `CrawfisSoftware.Maze`) into Wang-tile tilings. It provides tiling builders, colorizers, and path tile helpers that can be consumed by any renderer. SVG output lives in a separate example project and is intentionally not covered here.
 
 ## Package dependencies

@@ -10,7 +10,7 @@ env:
 # This workflow builds and packages the project on versioned releases.
 #
 # What it produces:
-# - A NuGet package (`.nupkg`) and symbols package (`.snupkg`) from `CrawfisSoftware.Tiling.csproj`.
+# - A NuGet package (`.nupkg`) and symbols package (`.snupkg`) from `env.DOTNET_PROJECT`.
 # - An optional Unity Package Manager (UPM) tarball (`.tgz`) if the Unity package folder exists.
 # - Optionally publishes the NuGet packages to nuget.org and attaches artifacts to the GitHub Release.
 #
